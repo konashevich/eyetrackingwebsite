@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdEye — Concept Presentation</title>
+  <meta name="description" content="Audience-aware DOOH advertising. All processing on the screen. Full privacy.">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <style>
+    :root {
+      --bg: #0a0c10;
+      --surface: #12151c;
+      --surface-2: #1a1e28;
+      --border: rgba(255,255,255,0.08);
+      --text: #e8eaef;
+      --muted: #8b919d;
+      --accent: #4d8ef7;
+      --accent-dim: rgba(77,142,247,0.12);
+      --green: #3ecf8e;
+      --green-dim: rgba(62,207,142,0.1);
+      --max: 1080px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Top bar */
+    .top {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .top-inner {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .top-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 72px 0 64px;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin: 0 0 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-points {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 28px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-points li {
+      padding-left: 18px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .hero-points strong {
+      display: block;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-points span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+
+    .hero-note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 460px;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Video */
+    .video-wrap {
+      border: 1px solid var(--border);
+      background: #000;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16/9;
+    }
+
+    /* Sections */
+    section {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 600;
+      line-height: 1.2;
+      margin: 0 0 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 0 40px;
+      font-size: 1.05rem;
+    }
+
+    /* Two-up */
+    .two-up {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .two-up h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 0 0 10px;
+    }
+
+    .two-up p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* Flow */
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .flow-step {
+      background: var(--surface);
+      padding: 24px 16px;
+      text-align: center;
+    }
+
+    .flow-step strong {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+
+    .flow-step span {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* Scenario */
+    .scenario {
+      margin-top: 40px;
+      padding: 28px 32px;
+      background: var(--surface);
+      border-left: 3px solid var(--accent);
+    }
+
+    .scenario h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .scenario ol {
+      margin: 0;
+      padding-left: 1.2em;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .scenario li { margin-bottom: 8px; }
+    .scenario strong { color: var(--text); }
+
+    /* Privacy — featured */
+    .privacy-block {
+      background: var(--green-dim);
+      border: 1px solid rgba(62,207,142,0.25);
+      padding: 40px 44px;
+    }
+
+    .privacy-block h2 {
+      color: var(--green);
+    }
+
+    .privacy-lead {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 32px;
+      max-width: 700px;
+    }
+
+    .privacy-flow {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .pf-box {
+      padding: 20px 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+
+    .pf-box strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.92rem;
+    }
+
+    .pf-box span { color: var(--muted); font-size: 0.8rem; }
+
+    .pf-box.core {
+      border-color: var(--green);
+      background: rgba(62,207,142,0.06);
+    }
+
+    .pf-arrow { color: var(--muted); }
+
+    .privacy-no {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #e07070;
+      margin-bottom: 28px;
+    }
+
+    .privacy-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0;
+    }
+
+    .privacy-list li {
+      padding: 14px 0;
+      border-top: 1px solid rgba(62,207,142,0.15);
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .privacy-list li strong { color: var(--text); }
+
+    /* Status */
+    .status-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+
+    .status-list li {
+      padding: 18px 22px;
+      background: var(--surface);
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .status-list li strong { color: var(--text); }
+
+    /* Footer */
+    footer {
+      padding: 40px 0 56px;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero-layout { grid-template-columns: 1fr; gap: 36px; }
+      .two-up { grid-template-columns: 1fr; gap: 28px; }
+      .flow { grid-template-columns: 1fr; }
+      .privacy-flow {
+        grid-template-columns: 1fr;
+      }
+      .pf-arrow { display: none; }
+      .privacy-block { padding: 28px 24px; }
+      section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="wrap top-inner">
+      <span class="brand">AdEye</span>
+      <span class="top-meta">Concept presentation · July 2026</span>
+    </div>
+  </div>
+
+  <div class="wrap hero">
+    <div class="hero-layout">
+      <div>
+        <h1>Street video ads. Finally measurable. Finally personal.</h1>
+        <ul class="hero-points">
+          <li>
+            <strong>Track street impressions</strong>
+            <span>Online ads know who saw them. Street screens never did. Now they can.</span>
+          </li>
+          <li>
+            <strong>Serve the right ad on eye contact</strong>
+            <span>They look. Camera profiles. Matching video plays — not a loop for everyone.</span>
+          </li>
+        </ul>
+        <p class="hero-note">
+          Brands pay for outdoor reach they cannot prove. With AdEye, an impression means someone
+          actually looked — and once that eye contact is there, age, gender and style decide which
+          creative from your pool goes on screen.
+        </p>
+      </div>
+      <div id="demo">
+        <div class="video-wrap">
+          <video
+            src="adeye.mp4"
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Concept demonstration video">
+            Your browser does not support video.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <p class="section-tag">How it works</p>
+      <h2>From glance to tailored ad</h2>
+      <p class="section-lead">
+        A camera built into the DOOH screen watches the footpath.
+        Everything below happens on the on-board computer — in real time.
+      </p>
+
+      <div class="flow">
+        <div class="flow-step">
+          <strong>Camera</strong>
+          <span>Sees footpath and screen zone</span>
+        </div>
+        <div class="flow-step">
+          <strong>Detect</strong>
+          <span>Find each passer-by</span>
+        </div>
+        <div class="flow-step">
+          <strong>Profile</strong>
+          <span>Age, gender, clothing style</span>
+        </div>
+        <div class="flow-step">
+          <strong>Attention</strong>
+          <span>Trigger when they look at screen</span>
+        </div>
+        <div class="flow-step">
+          <strong>Play</strong>
+          <span>Best creative from your pool</span>
+        </div>
+      </div>
+
+      <div class="scenario">
+        <h3>From the concept demo</h3>
+        <ol>
+          <li>A man in his <strong>20s–30s</strong> in <strong>sportswear</strong> walks through a city square.</li>
+          <li>He <strong>stops and looks at the screen</strong>. The camera detects sustained gaze.</li>
+          <li>The system builds a brief audience profile and counts one <strong>qualified impression</strong>.</li>
+          <li>The display switches to a <strong>Nike sneakers</strong> video matched to that profile.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap">
+      <div class="privacy-block">
+        <p class="section-tag" style="color: var(--green);">Full privacy</p>
+        <h2>All processing stays inside the screen</h2>
+        <p class="privacy-lead">
+          This is not a cloud service watching the street. The entire pipeline runs on a local computer
+          built into the DOOH unit. That is what makes full privacy and anonymity possible.
+        </p>
+
+        <div class="privacy-flow">
+          <div class="pf-box">
+            <strong>Camera</strong>
+            <span>Sees the footpath</span>
+          </div>
+          <span class="pf-arrow">→</span>
+          <div class="pf-box core">
+            <strong>On-screen computer</strong>
+            <span>Detect · profile · choose ad<br>Real time, on the device</span>
+          </div>
+          <span class="pf-arrow">→</span>
+          <div class="pf-box">
+            <strong>De-personalised stats</strong>
+            <span>Impression counts, dwell, segments</span>
+          </div>
+        </div>
+
+        <p class="privacy-no">✕ No video to the cloud &nbsp;·&nbsp; ✕ No images stored on device &nbsp;·&nbsp; ✕ No face database</p>
+
+        <ul class="privacy-list">
+          <li><strong>Nothing leaves the screen.</strong> No personal data transmitted to any cloud or external server.</li>
+          <li><strong>Nothing is stored.</strong> Video frames are processed in real time and discarded. No recordings, no photos, no face data kept on the device.</li>
+          <li><strong>Only anonymous statistics.</strong> De-personalised campaign metrics — e.g. one qualified impression, male, 20–30, sportswear, 2.4 s dwell. No identity.</li>
+          <li><strong>Full anonymity.</strong> The system never knows who someone is. It sees a person in the moment, acts on broad attributes, and forgets.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="section-tag">Status</p>
+      <h2>Proof of concept</h2>
+      <p class="section-lead">
+        This page presents the product concept. The technology behind it exists as a lab proof of concept —
+        person detection, gaze recognition, audience profiling, and on-screen inference on standard billboard hardware.
+        The next step is field testing on a live screen.
+      </p>
+      <ul class="status-list">
+        <li><strong>On-screen inference</strong> — pipeline runs on embedded hardware inside the screen unit</li>
+        <li><strong>Trained on 8,000+ street scenarios</strong> — varied lighting, crowds, distances, clothing</li>
+        <li><strong>Gaze and detection validated</strong> — knows when someone is actually watching vs walking past</li>
+        <li><strong>Next:</strong> real-world pilot on live DOOH street inventory</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      AdEye · Concept presentation · July 2026<br>
+      Concept video is AI-generated. The on-screen pipeline is independently developed and tested.
+    </div>
+  </footer>
+
+</body>
+</html>
