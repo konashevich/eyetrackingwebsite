@@ -1,0 +1,49 @@
+AdEye website color scheme
+Source: index.html (:root CSS variables + derived colors)
+Updated: 2026-07-15
+
+── Core palette (CSS variables) ──
+
+Background
+  --bg:           #0a0c10
+
+Surfaces
+  --surface:      #12151c
+  --surface-2:    #1a1e28
+
+Text
+  --text:         #e8eaef
+  --muted:        #8b919d
+
+Accent (blue)
+  --accent:       #4d8ef7
+  --accent-dim:   rgba(77, 142, 247, 0.12)   /* #4d8ef7 at 12% */
+
+Success / privacy (green)
+  --green:        #3ecf8e
+  --green-dim:    rgba(62, 207, 142, 0.1)    /* #3ecf8e at 10% */
+
+Borders
+  --border:       rgba(255, 255, 255, 0.08)  /* white at 8% */
+
+── Additional UI colors ──
+
+Video background:     #000000
+Error / warning:      #e07070
+
+Privacy block borders:
+  green border:       rgba(62, 207, 142, 0.25)   /* #3ecf8e at 25% */
+  green surface tint: rgba(62, 207, 142, 0.06)   /* #3ecf8e at 6% */
+  green list divider: rgba(62, 207, 142, 0.15)   /* #3ecf8e at 15% */
+
+── Quick reference (hex only) ──
+
+#0a0c10   background
+#12151c   surface
+#1a1e28   surface-2
+#e8eaef   text
+#8b919d   muted
+#4d8ef7   accent
+#3ecf8e   green
+#000000   video background
+#e07070   error / warning
