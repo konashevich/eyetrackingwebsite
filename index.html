@@ -122,6 +122,19 @@
       line-height: 1.6;
     }
 
+    /* Hero media */
+    .hero-media-wrap {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      overflow: hidden;
+    }
+
+    .hero-infographic {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     /* Video */
     .video-wrap {
       border: 1px solid var(--border);
@@ -132,6 +145,20 @@
       display: block;
       width: 100%;
       aspect-ratio: 16/9;
+    }
+
+    .demo-section {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .demo-section .wrap {
+      max-width: 1200px;
+    }
+
+    .video-wrap--large video {
+      aspect-ratio: 16/9;
+      min-height: 420px;
     }
 
     /* Sections */
@@ -349,6 +376,8 @@
       .pf-arrow { display: none; }
       .privacy-block { padding: 28px 24px; }
       section { padding: 56px 0; }
+      .demo-section { padding: 56px 0; }
+      .video-wrap--large video { min-height: 0; }
     }
   </style>
 </head>
@@ -381,20 +410,37 @@
           creative from your pool goes on screen.
         </p>
       </div>
-      <div id="demo">
-        <div class="video-wrap">
-          <video
-            src="adeye.mp4"
-            controls
-            playsinline
-            preload="metadata"
-            aria-label="Concept demonstration video">
-            Your browser does not support video.
-          </video>
-        </div>
+      <div class="hero-media-wrap">
+        <img
+          src="adeye.png"
+          alt="AdEye workflow: DOOH screen with camera detects a viewer, AI profiles gender, age, clothing and gaze locally on device, then selects a targeted ad"
+          class="hero-infographic"
+          width="1920"
+          height="1080">
       </div>
     </div>
   </div>
+
+  <section class="demo-section" id="demo">
+    <div class="wrap">
+      <p class="section-tag">Concept demo</p>
+      <h2>See it in action</h2>
+      <p class="section-lead">
+        AI-generated walkthrough of a passer-by stopping at a city-square screen —
+        gaze detected, profile built, targeted creative played. All on the device.
+      </p>
+      <div class="video-wrap video-wrap--large">
+        <video
+          src="adeye.mp4"
+          controls
+          playsinline
+          preload="metadata"
+          aria-label="Concept demonstration video">
+          Your browser does not support video.
+        </video>
+      </div>
+    </div>
+  </section>
 
   <section>
     <div class="wrap">
