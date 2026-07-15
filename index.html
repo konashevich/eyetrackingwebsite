@@ -6,6 +6,8 @@
   <title>AdEye — Concept Presentation</title>
   <meta name="description" content="Audience-aware DOOH advertising. All processing on the screen. Full privacy.">
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <link rel="icon" href="adeye_logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="adeye_logo.png">
   <style>
     :root {
       --bg: #0a0c10;
@@ -50,15 +52,25 @@
 
     .top-inner {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
       gap: 24px;
     }
 
     .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
       font-size: 1.1rem;
       font-weight: 600;
       letter-spacing: 0.02em;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      display: block;
+      flex-shrink: 0;
     }
 
     .top-meta {
